@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-
 import java.util.List;
 
 @Entity
@@ -18,6 +17,7 @@ public class Clothing_Type {
 
     private String Clothing_Type;
 
-    @OneToMany(mappedBy = "clothingType")
+    @OneToMany(mappedBy = "clothing_type")
     private List<Clothes> clothes;
+
 }
