@@ -20,30 +20,43 @@ public class ChildrenClothingController {
     @GetMapping("/index")
     public String index(Model model){
         try {
-            ResponseEntity<?> responseEntity =service.getAll();
+            ResponseEntity<?> responseEntity =service.listAll();
 
             if (responseEntity.getStatusCode().is2xxSuccessful()) {
                 ArrayList<ClothesDTO> allClothes = (ArrayList<ClothesDTO>) responseEntity.getBody();
-                model.addAttribute("candy", candyList);
+                model.addAttribute("clothes",allClothes);
+
+
             } else {
                 handleErrorResponse(model,responseEntity);
                 return "error";
             }
-            return "search";
+            return "index";
         }catch (Exception e){
 
             return tryCatch(e);
 
         }
 
-
-        return "index";
     }
 
 
 
+    private void handleErrorResponse(Model model, ResponseEntity<?> responseEntity) {
 
+        if (responseEntity.getStatusCode().is5xxServerError()) {
+            model.addAttribute("message", "Server Error");
+        } else if (responseEntity.getStatusCode().is4xxClientError()) {
+            model.addAttribute("message", "Client Error");
+        } else {
+            model.addAttribute("message", "An unexpected error occurred. Try Again!");
+        }
+    }
 
+    public String tryCatch(Exception e){
+        System.out.println(e.getMessage());
 
+        return "error";
+    }
 
 }

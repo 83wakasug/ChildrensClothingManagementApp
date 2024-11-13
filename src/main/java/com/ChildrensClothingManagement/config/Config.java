@@ -11,10 +11,4 @@ public class Config {
 
             return RestClient.builder().baseUrl(URL).build();
     }
-
-
-    }
-
-
-
 }
