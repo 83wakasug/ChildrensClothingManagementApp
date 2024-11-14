@@ -1,23 +1,26 @@
 package com.ChildrensClothingManagement.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+
 import java.util.List;
 
 @Entity
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Clothing_Type {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long clothing_type_id;
 
-    private String Clothing_Type;
+    private String clothing_Type;
 
     @OneToMany(mappedBy = "clothing_type")
     private List<Clothes> clothes;
+
+
 
 }

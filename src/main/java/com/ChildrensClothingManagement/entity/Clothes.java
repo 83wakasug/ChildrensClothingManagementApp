@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 public class Clothes {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int quantity;
     private int size;
@@ -21,5 +22,6 @@ public class Clothes {
 
 
     @ManyToOne
+    @JoinColumn(name = "clothing_type_id")
     private Clothing_Type clothing_type;
 }
