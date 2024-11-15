@@ -1,5 +1,6 @@
 package com.ChildrensClothingManagement.entity;
 
+import com.ChildrensClothingManagement.DTO.GenderEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,13 +16,25 @@ public class Clothes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int quantity;
-    private int size;
-    private String brand;
-    private String gender;
-    private String color;
 
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     @ManyToOne
     @JoinColumn(name = "clothing_type_id")
     private Clothing_Type clothing_type;
+
+    @ManyToOne
+    @JoinColumn(name = "size_id")
+    private Size size;
+
+    @ManyToOne
+    @JoinColumn(name = "color_id")
+    private Color color;
+
+    @ManyToOne
+    @JoinColumn(name = "gender_id")
+    private Gender gender;
 }
