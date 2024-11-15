@@ -1,8 +1,7 @@
 package com.ChildrensClothingManagement;
 
 import com.ChildrensClothingManagement.entity.*;
-import com.ChildrensClothingManagement.repository.ClothesRespository;
-import com.ChildrensClothingManagement.repository.Clothes_Type_Repository;
+import com.ChildrensClothingManagement.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,11 +22,11 @@ public class ChildrensClothingManagementApplication {
 
 	@Bean
 	public CommandLineRunner run(       ClothesRespository clothesRespository,
-										Clothing_Type_Repository clothingTypeRepository,
-										BrandRepository brandRepository,
-										SizeRepository sizeRepository,
-										ColorRepository colorRepository,
-										GenderRepository genderRepository) {
+										Clothes_Type_Repository clothingTypeRepository,
+										Brand_Repository brandRepository,
+										Size_Repository sizeRepository,
+										Color_Repository colorRepository,
+										Gender_Repository genderRepository) {
 		return (args) -> {
 			// 初期データを定義
 			List<String> clothingTypeNames = Arrays.asList(
