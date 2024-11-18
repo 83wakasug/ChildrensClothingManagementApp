@@ -10,7 +10,7 @@ public class ClothesDTO {
 
     private Long id;
     private int quantity;
-    private String size;
+    private int size;
     private String brand;
     private String gender;
     private String color;

@@ -35,7 +35,7 @@ public class ChildrensClothingManagementApplication {
 					"Tröjor", "T-shirt", "Lång Byxsor", "Kort Byxsor", "Leggins", "Pajama"
 			);
 			List<String> brandNames = Arrays.asList("Nike", "Adidas", "Puma", "Reebok");
-			List<String> sizeNames = Arrays.asList("32", "28", "36", "40");
+			List<Integer> sizeNames = Arrays.asList(44,50,56 ,60,62,68,70,74,80,86,90,92,98,100,104,110,116,120,122,128,130,134,140,146,150,152,158,160,164,170);
 			List<String> colorNames = Arrays.asList("Red", "Blue", "Green", "Black");
 			List<String> genderNames = Arrays.asList("Male", "Female", "Unisex");
 
@@ -58,7 +58,7 @@ public class ChildrensClothingManagementApplication {
 			}
 
 			List<Size> sizes = new ArrayList<>();
-			for (String sizeName : sizeNames) {
+			for (int sizeName : sizeNames) {
 				Size size = Size.builder().sizeName(sizeName).build();
 				sizes.add(size);
 				sizeRepository.save(size);
@@ -81,7 +81,7 @@ public class ChildrensClothingManagementApplication {
 			// `Clothes`エンティティを作成
 			Clothes clothes1 = new Clothes();
 			clothes1.setQuantity(10);
-			clothes1.setSize(sizes.get(0)); // サイズ 32
+			clothes1.setSize(sizes.get(1)); // サイズ 32
 			clothes1.setBrand(brands.get(0)); // ブランド Nike
 			clothes1.setGender(genders.get(0)); // 性別 Male
 			clothes1.setColor(colors.get(0)); // 色 Red
