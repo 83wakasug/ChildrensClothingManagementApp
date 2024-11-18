@@ -13,7 +13,27 @@
          <li><a href="http://localhost:8081/ChildrenClothing/edit"> Edit </a></li>
      </ul>
 </nav>
-
+<form action="#" th:action="@{/index}" th:object="${Clothes}"
+      method="get">
+    <fieldset>
+        <input type="submit" id="submitButton" th:value="Save">
+        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+        <table>
+            <thead>
+            <tr>
+                <th> Clothes</th>
+                <th> Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="Clothe, itemStat : *{Clothes}">
+                <td><input th:field="*{Clothe[__${itemStat.clothing_type}__].clothing_type}" /></td>
+                <td><input th:field="*{Clothe[__${itemStat.quantity}__].quantity}" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
 
 
 
