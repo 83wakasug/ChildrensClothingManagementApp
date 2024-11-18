@@ -44,7 +44,7 @@ public class ChildrensClothingManagementApplication {
 			for (int i = 0; i < clothingTypeNames.size(); i++) {
 				ClothingType type = ClothingType.builder()
 						.clothing_type_id((long) (i + 1))
-						.clothing_Type(clothingTypeNames.get(i))
+						.clothingType(clothingTypeNames.get(i))
 						.build();
 				clothingTypes.add(type);
 				clothingTypeRepository.save(type);

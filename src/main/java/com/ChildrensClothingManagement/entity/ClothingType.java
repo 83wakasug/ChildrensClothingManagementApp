@@ -16,7 +16,7 @@ public class ClothingType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clothing_type_id;
 
-    private String clothing_Type;
+    private String clothingType;
 
     @OneToMany(mappedBy = "clothingType")
     private List<Clothes> clothes;

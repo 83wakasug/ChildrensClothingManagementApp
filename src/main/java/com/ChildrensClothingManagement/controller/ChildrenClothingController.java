@@ -27,10 +27,12 @@ public class ChildrenClothingController {
     public String index(Model model){
         try {
 
-             List<Clothes> clothesList =  service.findAll();
+             List<ClothesDTO> clothesList =  service.findAll();
+            System.out.println(clothesList.size());
+            System.out.println(clothesList.get(1));
+             model.addAttribute("clothesList", clothesList);
 
 
-            model.addAttribute("clothesList", clothesList);
             return ViewName.INDEX;
         }catch (Exception e){
 
