@@ -22,11 +22,11 @@ public class ChildrensClothingManagementApplication {
 
 	@Bean
 	public CommandLineRunner run(       ClothesRespository clothesRespository,
-										Clothes_Type_Repository clothingTypeRepository,
-										Brand_Repository brandRepository,
-										Size_Repository sizeRepository,
-										Color_Repository colorRepository,
-										Gender_Repository genderRepository) {
+										ClothesTypeRepository clothingTypeRepository,
+										BrandRepository brandRepository,
+										SizeRepository sizeRepository,
+										ColorRepository colorRepository,
+										GenderRepository genderRepository) {
 		return (args) -> {
 			// 初期データを定義
 			List<String> clothingTypeNames = Arrays.asList(
@@ -40,9 +40,9 @@ public class ChildrensClothingManagementApplication {
 			List<String> genderNames = Arrays.asList("Male", "Female", "Unisex");
 
 			// 各テーブルにデータを保存
-			List<Clothing_Type> clothingTypes = new ArrayList<>();
+			List<ClothingType> clothingTypes = new ArrayList<>();
 			for (int i = 0; i < clothingTypeNames.size(); i++) {
-				Clothing_Type type = Clothing_Type.builder()
+				ClothingType type = ClothingType.builder()
 						.clothing_type_id((long) (i + 1))
 						.clothing_Type(clothingTypeNames.get(i))
 						.build();
@@ -85,7 +85,7 @@ public class ChildrensClothingManagementApplication {
 			clothes1.setBrand(brands.get(0)); // ブランド Nike
 			clothes1.setGender(genders.get(0)); // 性別 Male
 			clothes1.setColor(colors.get(0)); // 色 Red
-			clothes1.setClothing_type(clothingTypes.get(1)); // Clothing_Type: Vinterbyxor
+			clothes1.setClothingType(clothingTypes.get(1)); // Clothing_Type: Vinterbyxor
 			clothesRespository.save(clothes1);
 
 			Clothes clothes2 = new Clothes();
@@ -94,7 +94,7 @@ public class ChildrensClothingManagementApplication {
 			clothes2.setBrand(brands.get(1)); // ブランド Adidas
 			clothes2.setGender(genders.get(1)); // 性別 Female
 			clothes2.setColor(colors.get(1)); // 色 Blue
-			clothes2.setClothing_type(clothingTypes.get(2)); // Clothing_Type: Skaljacka
+			clothes2.setClothingType(clothingTypes.get(2)); // Clothing_Type: Skaljacka
 			clothesRespository.save(clothes2);
 		};
 	}

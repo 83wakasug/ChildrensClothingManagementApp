@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Clothing_Type {
+public class ClothingType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Clothing_Type {
 
     private String clothing_Type;
 
-    @OneToMany(mappedBy = "clothing_type")
+    @OneToMany(mappedBy = "clothingType")
     private List<Clothes> clothes;
 
 

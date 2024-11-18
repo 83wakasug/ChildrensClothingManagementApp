@@ -24,7 +24,7 @@ public class Clothes {
 
     @ManyToOne
     @JoinColumn(name = "clothing_type_id")
-    private Clothing_Type clothing_type;
+    private ClothingType clothingType;
 
     @ManyToOne
     @JoinColumn(name = "size_id")

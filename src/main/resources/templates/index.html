@@ -13,22 +13,24 @@
          <li><a href="http://localhost:8081/ChildrenClothing/edit"> Edit </a></li>
      </ul>
 </nav>
-<form action="#" th:action="@{/index}" th:object="${Clothes}"
-      method="get">
+<form action="#" th:action="@{/index}" th:object="${clothesList}" method="get">
     <fieldset>
-        <input type="submit" id="submitButton" th:value="Save">
-        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
         <table>
             <thead>
             <tr>
-                <th> Clothes</th>
-                <th> Quantity</th>
+                <th>Clothing Type</th>
+                <th>Quantity</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="Clothe, itemStat : *{Clothes}">
-                <td><input th:field="*{Clothe[__${itemStat.clothing_type}__].clothing_type}" /></td>
-                <td><input th:field="*{Clothe[__${itemStat.quantity}__].quantity}" /></td>
+            <!-- Iterate over the list of clothes -->
+            <tr th:each="clothes : ${clothesList}">
+                <td>
+                    <input type="text" th:value="${clothes.clothingType.name}" readonly />
+                </td>
+                <td>
+                    <input type="number" th:value="${clothes.quantity}" readonly />
+                </td>
             </tr>
             </tbody>
         </table>
