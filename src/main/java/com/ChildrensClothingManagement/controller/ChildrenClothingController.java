@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/")
@@ -26,11 +27,11 @@ public class ChildrenClothingController {
     @GetMapping(Url.INDEX)
     public String index(Model model){
         try {
-
-             List<ClothesDTO> clothesList =  service.findAll();
-            System.out.println(clothesList.size());
-            System.out.println(clothesList.get(1));
-             model.addAttribute("clothesList", clothesList);
+//
+//            List<ClothesDTO> clothesList;
+//            System.out.println(clothesList.size());
+//            System.out.println(clothesList.get(1));
+//            model.addAttribute("clothesList", clothesList);
 
 
             return ViewName.INDEX;
@@ -40,6 +41,19 @@ public class ChildrenClothingController {
 
         }
 
+    }
+
+    @GetMapping("/index2")
+    public String index2(Model model) {
+        try {
+            List< Map<String, Object>> clothesData = service.getPivotedClothingTypeData();
+
+            System.out.println(clothesData.size());
+            model.addAttribute("clothesData", clothesData);
+            return "index";
+        } catch (Exception e) {
+            return tryCatch(e);
+        }
     }
 
 

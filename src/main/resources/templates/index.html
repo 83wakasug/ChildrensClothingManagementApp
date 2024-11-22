@@ -18,22 +18,22 @@
         <table>
             <thead>
             <tr>
-                <th>Clothing Type</th>
-                <th>Quantity</th>
+                <th>ClothingType</th>
+                <th th:each="size : ${clothingData.values().iterator().next().keySet()}">
+                    <span th:text="${size}">Size</span>
+                </th>
             </tr>
             </thead>
             <tbody>
-            <!-- Iterate over the list of clothes -->
-            <tr th:each="clothes : ${clothesList}">
-                <td>
-                    <input type="text" th:value="${clothes.getClothing_type()}" readonly />
-                </td>
-                <td>
-                    <input type="number" th:value="${clothes.getQuantity()}" readonly />
+            <tr th:each="entry : ${clothingData}">
+                <td th:text="${entry.key}">ClothingType</td>
+                <td th:each="size : ${entry.value.keySet()}">
+                    <span th:text="${entry.value.get(size)}">TotalQuantity</span>
                 </td>
             </tr>
             </tbody>
         </table>
+
     </fieldset>
 </form>
 

@@ -24,7 +24,7 @@ public interface ClothesRespository extends JpaRepository<Clothes,Long> {
     GROUP BY
     clothing_type.clothing_type, size.size_Name
     ORDER BY
-    clothing_type.clothing_type, size.size_clothing_typeclothesbrandclothesName;
+    clothing_type.clothing_type, size.size_Name;
   """, nativeQuery = true)
 
     List<Object[]> findClothingTypeAndSizeQuantities();
